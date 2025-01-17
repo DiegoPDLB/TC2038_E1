@@ -22,13 +22,13 @@ void merge(vector<double>& arr, int left, int mid, int right) {
     }
 }
 
-void funcionSort(vector<double>& arr, int left, int right) {
+void ordenar_descendente(vector<double>& arr, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
 
-        funcionSort(arr, left, mid);
+        ordenar_descendente(arr, left, mid);
 
-        funcionSort(arr, mid + 1, right);
+        ordenar_descendente(arr, mid + 1, right);
 
         merge(arr, left, mid, right);
     }
@@ -51,7 +51,7 @@ int main() {
         cin >> arr[i];
     }
 
-    funcionSort(arr, 0, N - 1);
+    ordenar_descendente(arr, 0, N - 1);
 
     cout << "Valores ordenados de mayor a menor:" << endl;
     for (double num : arr) {
